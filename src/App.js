@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import "cirrus-ui";
+import useFetchJobs from "./Hooks/useFetchJobs";
+import { useState } from "react";
+import Job from './Components/Job'
 
 function App() {
+  const [params, setParams] = useState({});
+  const [page, setPage] = useState(1)
+  const { jobs, loading, error } = useFetchJobs(params, page);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    {loading && <h1>Loading...</h1>}
+    {error && <h1>Error. Try Refreshing!</h1>}
+    {jobs.map(job => {
+      return <Job key={job.id} job = {job} />
+    })}
     </div>
   );
 }
