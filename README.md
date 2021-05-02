@@ -1,3 +1,7 @@
+# CORS 
+
+You might get CORS issue because I haven't used external server. So if you want to preview this app, make sure you install any CORS Unblocker extension. 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
