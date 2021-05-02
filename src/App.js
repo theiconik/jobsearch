@@ -24,6 +24,7 @@ function App() {
   return (
     <div className="App m-4">
       <h1 className="animated fadeIn m-6">💼jobsearch</h1>
+      <SearchForm params={params} onParamChange={handleParamChange} />
       {loading && (
         <span class="icon">
           <i
@@ -32,8 +33,17 @@ function App() {
           ></i>
         </span>
       )}
-      {error && <h4>Error. Try Refreshing!</h4>}
-      <SearchForm params = {params} onParamChange={handleParamChange} />
+      {error && (
+        <div>
+        <span class="icon">
+        <i
+          class="fa fa-wrapper fa-exclamation-triangle animated pulse"
+          aria-hidden="true"
+        ></i>
+      </span>
+      <p class="animated pulse">Error fetching!</p>
+      </div>
+      )}
       {jobs.map((job) => {
         return (
           <Job

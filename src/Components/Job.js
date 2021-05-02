@@ -55,7 +55,7 @@ const Job = ({ job }) => {
           <div class="card__action-bar u-center">
             <button
               onClick={() => setOpen(open)}
-              class="outline btn-info btn-small hover-grow"
+              class="outline btn-info btn-animated btn-small hover-grow"
               style={{ margin: "5px 0" }}
             >
               {open ? "Hide Details" : "Show Details"}
